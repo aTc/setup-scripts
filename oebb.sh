@@ -147,7 +147,8 @@ else
         sudo aptitude install expect -y
         expect -c 'spawn sudo dpkg-reconfigure -freadline dash; send "n\n"; interact;'
     fi
-
+   
+    echo "cd \${BUILDDIR}" >> ${OE_ENV_FILE}
     echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ${OE_ENV_FILE}' and run 'bitbake something' without using $0 as wrapper"
 fi # if -e ${OE_ENV_FILE}
 }
